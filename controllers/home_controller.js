@@ -1,5 +1,5 @@
 module.exports.home=function(req,res){
 
-    return res.end('<h1>The express controller is running!</h1>');
+    return res.render('home');
 
 }
