@@ -4,6 +4,8 @@ const app=express();
 
 const port=8000;
 
+app.use('/',require('./routes/index'));
+
 
 app.listen(port,function(err){
 
@@ -15,5 +17,5 @@ app.listen(port,function(err){
     }
 
     console.log(`The server is up and running on port : ${port}`);
-    
+
 });
