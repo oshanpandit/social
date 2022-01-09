@@ -26,3 +26,5 @@ app.listen(port,function(err){
     console.log(`The server is up and running on port : ${port}`);
 
 });
+
+console.log('hello!!');
