@@ -7,12 +7,22 @@ module.exports.profile=function(req,res){
 
 module.exports.signIn=function(req,res){
 
-    res.render('user_signIn.ejs');
+    if(req.isAuthenticated()){
+
+        return res.redirect('/user/profile');
+    }
+
+    return res.render('user_signIn.ejs');
 };
 
 module.exports.signUp=function(req,res){
 
-    res.render('user_signUp.ejs');
+    if(req.isAuthenticated()){
+
+        return res.redirect('/user/profile');
+    }
+
+   return res.render('user_signUp.ejs');
 };
 
 module.exports.create=function(req,res){
@@ -50,5 +60,6 @@ module.exports.create=function(req,res){
 
 module.exports.createSession=function(req,res){
 
-// sign in content  
+    return res.redirect('/');
+
 };

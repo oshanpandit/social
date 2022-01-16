@@ -2,29 +2,70 @@ const express=require('express');
 
 const cookieParser=require('cookie-parser');
 
+const app=express();
+
 const port=8000;
 
-const app=express();
+const expresslayouts=require('express-ejs-layouts');
 
 const connectDb=require('./config/mongoose');
 
 connectDb();
 
-const expresslayouts=require('express-ejs-layouts');
+const session=require('express-session');
 
-app.use(expresslayouts);
- 
-app.use(cookieParser());
+const passport=require('passport');
+
+const passportLocal=require('./config/passport-local-strategy');
+
 
 app.use(express.urlencoded());
 
+app.use(cookieParser());
+
 app.use(express.static('./assets') );
 
-app.use('/',require('./routes/home'));
+app.use(expresslayouts);
+
+app.set('layout extractStyles',true);
+
+
+app.set('layout extractScripts',true);
+
+
+
 
 app.set('view engine','ejs');
 
 app.set('views','./views');
+
+app.use(session({
+
+    name:'test',
+
+    secret:"blahsomething...",
+
+    saveUninitialized:false,
+
+    resave:false,
+
+    cookie:{
+//in miliseconds
+        maxAge:(1000 * 60 * 100)
+    }
+
+
+
+}));
+
+app.use(passport.initialize());
+
+app.use(passport.session());
+
+app.unsubscribe(passport.setAuthenticatedUser)
+
+app.use('/',require('./routes/home'));
+
 
 
 
