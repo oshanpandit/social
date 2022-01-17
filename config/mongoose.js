@@ -2,14 +2,14 @@ const mongoose=require('mongoose');
 
 mongoose.connect('mongodb://localhost/user_list_db')
 
-function connectDb(){
-    const connection=mongoose.connection;
-    connection.once('open',(err)=>{
-        if(err){
-            console.log("Not connected to database!");
-            return;
-        }
-        console.log('Server is connected to the database!');
-    })
-}
-module.exports=connectDb;
+const db=mongoose.connection;
+
+db.on('error',console.error.bind(console,"error connectiong to MongoDB"));
+
+db.once('open',function(){
+
+    console.log('connected to database :: MongoDB');
+
+});
+
+module.exports=db;

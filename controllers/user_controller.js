@@ -12,7 +12,7 @@ module.exports.signIn=function(req,res){
         return res.redirect('/user/profile');
     }
 
-    return res.render('user_signIn.ejs');
+return res.render('user_signIn.ejs');
 };
 
 module.exports.signUp=function(req,res){
@@ -20,7 +20,9 @@ module.exports.signUp=function(req,res){
     if(req.isAuthenticated()){
 
         return res.redirect('/user/profile');
+
     }
+
 
    return res.render('user_signUp.ejs');
 };
@@ -63,3 +65,10 @@ module.exports.createSession=function(req,res){
     return res.redirect('/');
 
 };
+
+module.exports.destroySession=function(req,res){
+
+    req.logout();
+
+    return res.redirect('/');
+}
