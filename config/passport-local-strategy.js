@@ -7,7 +7,7 @@ const User=require('../models/user');
 passport.use(new LocalStrategy({
 
     usernameField:'email'
-},
+}, 
 
 function(email,password,done){
 

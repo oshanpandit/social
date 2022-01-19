@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  background-color: blue;
+  margin: 0%;
+}
+header #navigation {
+  width: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+header #navigation a {
+  text-decoration: none;
+  color: white;
+  font-family: sans-serif;
+  font-size: 1.2rem;
+}
+header #navigation a:hover {
+  color: lightgray;
+}
+header #name {
+  font-size: 2.3rem;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-bottom: 1%;
+  font-weight: 550;
+  font-family: sans-serif;
+  color: white;
+}
+
+/*# sourceMappingURL=headerStyle.css.map */
