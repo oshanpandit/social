@@ -1,4 +1,38 @@
+<link rel="stylesheet" href="/css/homepageStyle.css">
+   
+<h1>
+    Codeial
+</h1>
 
 
-    <h1>My social/home page</h1>
+<section id="feed-posts">
+    <h4>Posts</h4>
+
+    
+    <form action="/post/create" id="new-post-form" method="POST">
+        <textarea name="content" cols="30" rows="3" placeholder="Type Here..."></textarea>
+        <input type="submit" value="Post">
+    </form>
+
+    
+
+    <div id="posts-list-container">
+        <ul>
+            <% for(post of posts){ %>
+                
+            <li>
+                <p>
+                    <%= post.content %>
+                    <br>
+                   
+                </p>
+
+                <p><%=post.user.name%></p>
+                
+            </li>
+                
+            <%} %>
+        </ul>
+    </div>
+</section>
     

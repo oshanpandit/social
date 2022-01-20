@@ -37,7 +37,7 @@ app.set('views','./views');
 //mongo store is used to store the session in the db
 app.use(session({
 
-    name:'test',
+    name:'user',
 
     //change the secreat before deployment
     secret:"blahsomething...",

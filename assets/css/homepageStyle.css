@@ -1,0 +1,9 @@
+body {
+  background: linear-gradient(to right, black 20%, lightgray);
+}
+body #layout-main {
+  font-family: sans-serif;
+  color: white;
+}
+
+/*# sourceMappingURL=homepageStyle.css.map */
