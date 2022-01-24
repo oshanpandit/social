@@ -5,5 +5,10 @@ body #layout-main {
   font-family: sans-serif;
   color: white;
 }
+body #layout-main #heading {
+  font-size: 2rem;
+  text-align: center;
+  font-style: italic;
+}
 
 /*# sourceMappingURL=homepageStyle.css.map */

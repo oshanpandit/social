@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/homepageStyle.css">
    
-<h1>
-    Codeial
+<h1 id="heading">
+    Homepage Feed
 </h1>
 
 
@@ -23,6 +23,12 @@
             <li>
                 <p>
                     <%= post.content %>
+                    <% if(locals.user && locals.user.id==post.user.id){%>
+                    <small>
+                        <a href="/post/destroy/<%=post.id%>">X</a>
+                    </small>
+
+                    <%}%>
                    
                 </p>
 
@@ -52,7 +58,8 @@
 
                                     <p>
 
-                                        <%=comment.content%><br>
+                                        <%=comment.content%>
+                                       <br>
                                         <%=comment.user.name%>
 
                                     </p>
@@ -71,4 +78,5 @@
         </ul>
     </div>
 </section>
+
     
