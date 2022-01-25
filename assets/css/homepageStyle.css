@@ -10,5 +10,10 @@ body #layout-main #heading {
   text-align: center;
   font-style: italic;
 }
+body #layout-main #feed-posts a {
+  color: red;
+  text-decoration: none;
+  font: size 1rem;
+}
 
 /*# sourceMappingURL=homepageStyle.css.map */
