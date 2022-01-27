@@ -12,80 +12,16 @@
         <form action="/post/create" id="new-post-form" method="POST">
             <textarea name="content" cols="30" rows="3" placeholder="Type Here..."></textarea>
             <input type="submit" value="Post">
-        </form>
+        </form>     
     <%}%>
    
 
-    
-
     <div id="posts-list-container">
-        <ul>
-            <% for(post of posts){ %>
-                
-            <li>
-                <p>
-                    <%= post.content %>
-                    <% if(locals.user && locals.user.id==post.user.id){%>
-                    <small>
-                        <a href="/post/destroy/<%=post.id%>">X</a>
-                    </small>
 
-                    <%}%>
-                   
-                </p>
+        <%-include('_post')-%>
 
-                <p><%=post.user.name%></p>
-
-                <div class="post-comments">
-
-                    <% if(locals.user){%>
-
-                        <form action="/comment/create" method="post">
-
-                <input type="text" name="content" placeholder="Add Comment here">
-
-                <input type="hidden" name="post" value="<%=post._id%>">
-
-                <input type="submit" value="add comment">
-
-                        </form>
-
-                        <%}%>
-
-                        <div class="post-comments-list">
-
-                            <ul id="post-comments-<%=post._id%>">
-
-                                <% for(comment of post.comments){%>
-
-                                    <p>
-                                       <% if(locals.user && locals.user.id==comment.user.id){%>
-                                        <small>
-                                            <a href="/comment/destroy/<%=comment.id%>">X</a>
-                                        </small>
-                                      
-                                        <%}%>
-                                       
-
-                                        <%=comment.content%>
-                                       <br>
-                                        <%=comment.user.name%>
-
-                                    </p>
-
-                                    <%}%>
-
-                            </ul>
-
-                        </div>
-
-                </div>
-
-              </li>
-                
-            <%} %>
-        </ul>
-    </div>
+        </div>
+       
 </section>
 
     
