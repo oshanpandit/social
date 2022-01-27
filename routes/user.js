@@ -8,6 +8,8 @@ const userController=require('../controllers/user_controller');
 
 router.get('/profile/:id',passport.checkAuthentication,userController.profile);
 
+router.post('/update/:id',userController.update);
+
 router.get('/signIn',userController.signIn);
 
 router.get('/signUp',userController.signUp);

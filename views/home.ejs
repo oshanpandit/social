@@ -25,8 +25,19 @@
 </section>
 
 <section id="user-friends">
+    
+    
+<% if(locals.user){%>
 
     <h4>Friends</h4>
+
+<%}%>
+
+<% if(!locals.user){%>
+
+    <h4>My social Users</h4>
+
+<%}%>
 
     <% for(u of all_users){%>
 
