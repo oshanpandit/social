@@ -1,5 +1,6 @@
 const Post=require('../models/post');
 
+const User=require('../models/user');
 
 //populate the user of each post
 module.exports.home=function(req,res){
@@ -16,11 +17,17 @@ module.exports.home=function(req,res){
    })
    .exec(function(err,post){
 
+  User.find({},function(err,users){
+
     return res.render('home',{
 
-        posts: post
+        posts: post,
+
+        all_users:users
         
-    })
+    });
+
+  });
 
     
    });

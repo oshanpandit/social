@@ -1,7 +1,6 @@
 <ul>
     <% for(post of posts){ %>
-        
-    <li>
+        <li>
         <p>
             <%= post.content %>
             <% if(locals.user && locals.user.id==post.user.id){%>

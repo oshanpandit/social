@@ -1,7 +1,4 @@
 body{
-
-    background: linear-gradient(to bottom,black 30%,gray);
-
     #layout-main{
 
         display: flex;
@@ -15,7 +12,7 @@ body{
         #heading{
 
             font-family: sans-serif;
-            color:white;
+           
             font-style: italic;
             text-decoration: underline;
         }
@@ -23,7 +20,7 @@ body{
         #credentials{
 
             font-family: sans-serif;
-            color:white;
+           
             font-weight:600;
         }
     }

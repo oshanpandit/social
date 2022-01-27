@@ -24,4 +24,24 @@
        
 </section>
 
+<section id="user-friends">
+
+    <h4>Friends</h4>
+
+    <% for(u of all_users){%>
+
+        <% if(locals.user && locals.user.id==u.id){%>
+        
+            <%continue%>
+        
+        <%}%>
+    
+        <p>
+
+          <a href="/user/profile/<%=u.id%>"><%=u.name%></a>  
+        </p>
+    
+    <%}%>
+</section>
+
     
