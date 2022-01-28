@@ -1,38 +1,37 @@
-<ul>
-    <% for(post of posts){ %>
-        <li>
-        <p>
-            <%= post.content %>
-            <% if(locals.user && locals.user.id==post.user.id){%>
-            <small>
-                <a href="/post/destroy/<%=post.id%>">X</a>
-            </small>
-
-            <%}%>
-           
-        </p>
-
-        <p><%=post.user.name%></p>
-
-        <div class="post-comments">
-
-            <% if(locals.user){%>
-
-                <form action="/comment/create" method="post">
-
-        <input type="text" name="content" placeholder="Add Comment here">
-
-        <input type="hidden" name="post" value="<%=post._id%>">
-
-        <input type="submit" value="add comment">
-
-                </form>
-
+    <ul type="none">
+        <% for(post of posts){ %>
+            <li>
+                
+            <p id="post-main">
+                <i class="fas fa-vote-yea"></i>&ensp;<%= post.content %>
+                <% if(locals.user && locals.user.id==post.user.id){%>
+                <small>
+                    <a href="/post/destroy/<%=post.id%>">X</a>
+                </small>
+    
                 <%}%>
-
-               <%-include('_comment')-%>
-
-      </li>
-        
-    <%} %>
-</ul>
+                <p id="post-user-name"><%=post.user.name%></p>
+               
+            </p>
+    
+    
+            <div class="post-comments">
+    
+                <% if(locals.user){%>
+    
+             <form action="/comment/create" method="post">
+    
+            <input type="text" name="content" placeholder="Add Comment here" id="add-comment">
+    
+            <input type="hidden" name="post" value="<%=post._id%>">
+    
+            <button type="submit" id="comment-button"><i class="fas fa-comments"></i></button>
+    
+                    </form>
+    
+                    <%}%>
+    
+          </li>
+            
+        <%} %>
+    </ul>

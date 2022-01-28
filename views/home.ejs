@@ -1,58 +1,58 @@
 <link rel="stylesheet" href="/css/homepageStyle.css">
    
-<h1 id="heading">
-    Homepage Feed
-</h1>
 
 
-<section id="feed-posts">
-    <h4>Posts</h4>
-
-    <% if(locals.user){%>
-        <form action="/post/create" id="new-post-form" method="POST">
-            <textarea name="content" cols="30" rows="3" placeholder="Type Here..."></textarea>
-            <input type="submit" value="Post">
-        </form>     
-    <%}%>
-   
-
-    <div id="posts-list-container">
-
-        <%-include('_post')-%>
-
-        </div>
+    <section id="feed-posts">
+        <h4 id="post-heading">Posts</h4>
+    
+        <% if(locals.user){%>
+            <form action="/post/create" id="new-post-form" method="POST">
+                <textarea name="content" cols="30" rows="3" placeholder="Type Here..."></textarea>
+                <br><br>
+                <button type="submit" id="post-button">Post</button>
+            </form>     
+        <%}%>
        
-</section>
-
-<section id="user-friends">
     
+        <div id="post-list-container">
     
-<% if(locals.user){%>
-
-    <h4>Friends</h4>
-
-<%}%>
-
-<% if(!locals.user){%>
-
-    <h4>My social Users</h4>
-
-<%}%>
-
-    <% for(u of all_users){%>
-
-        <% if(locals.user && locals.user.id==u.id){%>
+            <%-include('_post')-%>
+            <%-include('_comment')-%>
+    
+            </div>
+           
+    </section>
+    
+    <section id="user-friends">
         
-            <%continue%>
+        
+    <% if(locals.user){%>
+    
+        <h4 class="heading">Friends</h4>
+    
+    <%}%>
+    
+    <% if(!locals.user){%>
+    
+        <h4 class="heading">Users</h4>
+    
+    <%}%>
+    
+        <% for(u of all_users){%>
+    
+            <% if(locals.user && locals.user.id==u.id){%>
+            
+                <%continue%>
+            
+            <%}%>
+        
+            <p id="friends-list">
+    
+              <a href="/user/profile/<%=u.id%>"><%=u.name%></a>  
+            </p>
         
         <%}%>
+    </section>
     
-        <p>
+        
 
-          <a href="/user/profile/<%=u.id%>"><%=u.name%></a>  
-        </p>
-    
-    <%}%>
-</section>
-
-    

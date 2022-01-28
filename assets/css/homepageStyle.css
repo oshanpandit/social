@@ -1,15 +1,89 @@
-body #layout-main {
+#layout-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+#layout-main #feed-posts #post-heading {
   font-family: sans-serif;
-}
-body #layout-main #heading {
   font-size: 2rem;
-  text-align: center;
-  font-style: italic;
 }
-body #layout-main #feed-posts a {
+#layout-main #feed-posts textarea {
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  border: none;
+  border: 2px solid blue;
+}
+#layout-main #feed-posts #post-button {
+  padding: 1%;
+  width: 60px;
+  font-family: sans-serif;
+  font-weight: 700;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+#layout-main #feed-posts #post-button:hover {
+  background-color: black;
+}
+#layout-main #feed-posts #post-list-container #post-main {
+  font-family: sans-serif;
+  font-size: 1.4rem;
+}
+#layout-main #feed-posts #post-list-container #post-main a {
   color: red;
   text-decoration: none;
-  font: size 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+#layout-main #feed-posts #post-list-container #post-main i {
+  font-size: 1.3rem;
+  color: purple;
+}
+#layout-main #feed-posts #post-list-container #post-user-name {
+  font-family: sans-serif;
+  font-style: italic;
+}
+#layout-main #feed-posts #post-list-container .post-comments #add-comment {
+  border: none;
+  border-bottom: 2px solid violet;
+}
+#layout-main #feed-posts #post-list-container .post-comments #comment-button {
+  border: none;
+  background-color: white;
+  font-size: 1.5rem;
+}
+#layout-main #feed-posts #post-list-container .post-comments #comment-button:hover {
+  color: blue;
+}
+#layout-main #feed-posts #post-comments #comment-main {
+  font-family: sans-serif;
+}
+#layout-main #feed-posts #post-comments #comment-main a {
+  color: red;
+  text-decoration: none;
+  font-weight: 700;
+}
+#layout-main #feed-posts #post-comments #comment-main #user-name {
+  color: blue;
+  font-size: 1.1rem;
+}
+#layout-main #user-friends {
+  height: 100%;
+  margin-right: 5%;
+  padding-left: 2%;
+  border-left: 1px solid gray;
+}
+#layout-main #user-friends .heading {
+  font-family: sans-serif;
+  font-size: 2rem;
+}
+#layout-main #user-friends #friends-list a {
+  color: purple;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 1.3rem;
 }
 
 /*# sourceMappingURL=homepageStyle.css.map */

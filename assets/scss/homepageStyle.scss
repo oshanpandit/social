@@ -1,26 +1,145 @@
-body{
+#layout-main{
 
-    #layout-main{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    width:100%;
+    #feed-posts{
 
-        font-family: sans-serif;
+        #post-heading{
 
-        #heading{
-          
+            font-family:sans-serif;
             font-size:2rem;
-            text-align: center;
-            font-style: italic;
-
         }
 
-        #feed-posts{
+        textarea{
 
-            a{
+            font-size:1.5rem;
+            font-family:sans-serif;
+            border:none;
+            border:2px solid blue;
+        }
 
-                color:red;
-                text-decoration:none;
-                font: size 1rem;
+        #post-button{
+
+            padding:1%;
+            width:60px;
+            font-family: sans-serif;
+            font-weight:700;
+            background-color: blue;
+            color:white;
+            border:none;
+            border-radius:5px;
+            
+        }
+
+        #post-button:hover{
+            background-color: black;
+        }
+
+        #post-list-container{
+
+            #post-main{
+    
+                font-family:sans-serif;
+                font-size:1.4rem;
+               
+    
+                a{
+    
+                    color:red;
+                    text-decoration: none;
+                    font-size:1rem;
+                    font-weight:700;
+    
                 }
+    
+                i{
+    
+                    font-size:1.3rem;
+                    color:purple;
+                }
+            }
+    
+            #post-user-name{
+    
+                font-family:sans-serif;
+                font-style:italic;
+            }
+
+            .post-comments{
+
+                #add-comment{
+
+                    border:none;
+                    border-bottom:2px solid violet;
+                }
+
+                #comment-button{
+
+                    border:none;
+                    background-color:white;
+                    font-size:1.5rem;
+                   
+                }
+
+                #comment-button:hover{
+
+                    color:blue;
+                }
+            }
         }
+
+
+        #post-comments{
+
+            #comment-main{
+
+                font-family:sans-serif;
+
+                a{
+
+                    color:red;
+                    text-decoration: none;
+                    font-weight:700;
+                }
+
+                #user-name{
+
+                    color:blue;
+                    font-size:1.1rem;
+                }
+            }
+        }
+        
+    }
+
+    #user-friends{
+
+        height:100%;
+        margin-right:5%;
+        padding-left:2%;
+        border-left:1px solid gray;
+
+        .heading{
+
+            font-family:sans-serif;
+            font-size:2rem;
+        }
+
+        #friends-list{
+
+           a{
+            color:purple;
+            text-decoration: none;
+            font-family:sans-serif;
+            font-size:1.3rem;
+           }
+        }
+
 
     }
+
+   
+
 }
