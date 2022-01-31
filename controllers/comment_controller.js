@@ -20,11 +20,16 @@ module.exports.create=async function(req,res){
 
         post.save();
 
-        res.redirect('/');
+        req.flash('success','Comment Created!!');
+
+       return res.redirect('/');
     }
 
        
-   } catch (error) {
+   } catch (err) {
+
+    req.flash('error',err);
+
 
     console.log('error',err);
        
@@ -46,14 +51,20 @@ module.exports.destroy=async function(req,res){
 
         let post=await Post.findByIdAndUpdate(postId,{$pull:{comments:req.params.id}});
 
+        req.flash('success','Comment deletd!!');
+
             return res.redirect('back');
         
     }else{
 
+        req.flash('success','Can not delete comment!!');
+
         return res.redirect('back');
     }
 
-   } catch (error) {
+   } catch (err) {
+
+    req.flash('error',err);
 
     console.log('error',err);
        
