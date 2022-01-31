@@ -3,9 +3,11 @@ const Post=require('../models/post');
 const User=require('../models/user');
 
 //populate the user of each post
-module.exports.home=function(req,res){
+module.exports.home=async function(req,res){
 
-   Post.find({})
+  try {
+
+    let posts=await Post.find({})
    
    .populate('user')
    .populate({
@@ -14,24 +16,31 @@ module.exports.home=function(req,res){
 
         path:'user'
     }
-   })
-   .exec(function(err,post){
+   });
 
-  User.find({},function(err,users){
+
+   let users=await User.find({})
 
     return res.render('home',{
 
-        posts: post,
+        posts: posts,
 
         all_users:users
         
     });
 
-  });
+    
+  } catch (err) {
+    
+    console.log('error',err);
+
+    return;
+  }
+
+   
+  }
 
     
-   });
-    
 
-}
+
 

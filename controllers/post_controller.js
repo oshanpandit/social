@@ -2,49 +2,57 @@ const Post=require('../models/post');
 
 const Comment=require('../models/comment');
 
-module.exports.create=function(req,res){
+module.exports.create=async function(req,res){
 
-    Post.create({
+ try {
+
+    await Post.create({
 
         content:req.body.content,
         user:req.user._id
 
 
-    },function(err,post){
-
-        if(err){
-
-            console.log('error in creating a post');
-
-            return;
-        }
-
-        return res.redirect('back');
     });
+
+    return res.redirect('back');
+     
+ } catch (error) {
+     
+    console.log('err',err);
+
+    return;
+ }
+    
 
 }
 
-module.exports.destroy=function(req,res){
+module.exports.destroy=async function(req,res){
 
-    Post.findById(req.params.id,function(err,post){
+   try {
 
-        //.id means coverting object id into string
-        if(post.user==req.user.id){
+    let post=await Post.findById(req.params.id);
 
-            post.remove();
+    //.id means coverting object id into string
+    if(post.user==req.user.id){
 
-            Comment.deleteMany({post:req.params.id},function(err){
+        post.remove();
 
-                return res.redirect('/');
-            });
+       await Comment.deleteMany({post:req.params.id});
 
-        }
+       return res.redirect('back');
 
-        else{
+    }
 
-            return res.redirect('back');
-        }
+    else{
 
-    });
+        return res.redirect('back');
+    }
+       
+   } catch (error) {
+       
+    console.log('error',err);
+
+    return;
+   }
 
 }

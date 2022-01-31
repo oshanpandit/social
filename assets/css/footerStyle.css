@@ -3,6 +3,7 @@ footer {
   flex-direction: row;
   background-color: black;
   align-items: center;
+  position: fixed;
 }
 footer #heading {
   font-family: sans-serif;
