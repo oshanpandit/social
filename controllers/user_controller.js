@@ -56,6 +56,7 @@ module.exports.create=function(req,res){
 
                 if(err){console.log('error in creating user while signing up'); return}
 
+                req.flash('success','User Created!')
                  return res.redirect('/user/signIn');
             });
          }else{
@@ -90,6 +91,7 @@ module.exports.update=function(req,res){
         User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
 
            
+            req.flash('success','User Information updated!');
           res.redirect('back');
     
         });
