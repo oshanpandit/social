@@ -1,31 +1,47 @@
 <link rel="stylesheet" type="text/css" href="/css/userStyle.css">
 
-  
-    <div id="heading">
-        <h1>This is the profile section!</h1>
-    </div>
 
-
-    <% if(locals.user.id==profile_user.id){%>
-
-        <form action="/user/update/<%=profile_user.id%>" method="post">
-
-            <input type="text" name="name" placeholder="Your name" value="<%=profile_user.name%>" required><br><br>
-            
-            <input type="email" name="email" placeholder="your email" value="<%=profile_user.email%>" required><br><br>
-
-            <input type="submit" value="update">
-
-        </form>
-
-        <%}else{%>
-
-        <div id="credentials">
-
-            <p>Name: <%= profile_user.name%></p>
-        <p>username: <%= profile_user.email%></p>
+    <section id="heading">
+        <h1><%=profile_user.name%>'s profile</h1>
+    </section>
     
+
+
+    <section id="bottom">
+
+        <% if(locals.user.id==profile_user.id){%>
+        <div id="change-ask">
+
+            Wanna Change Your Information <%=profile_user.name%> ?
+
         </div>
 
         <%}%>
+
+        <% if(locals.user.id==profile_user.id){%>
+
+            <form action="/user/update/<%=profile_user.id%>" method="post" id="change-form">
+    
+                <input type="text" name="name" placeholder="Your name" value="<%=profile_user.name%>" required><br><br>
+                
+                <input type="email" name="email" placeholder="your email" value="<%=profile_user.email%>" required><br><br>
+    
+                <button type="submit">Update</button>
+    
+            </form>
+    
+            <%}else{%>
+    
+            <div id="credentials">
+    
+                <p>Name: <%= profile_user.name%></p>
+            <p>Username: <%= profile_user.email%></p>
+        
+            </div>
+    
+            <%}%>
+
+    </section>
+
+   
 

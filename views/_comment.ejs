@@ -1,24 +1,34 @@
-    <ul id="post-comments">
+<!-- <div id="post-comments-view"> -->
 
-        <% for(comment of post.comments){%>
+    <ul type="none" id="post-comments-view">
 
-            <p id="comment-main">
-               <% if(locals.user && locals.user.id==comment.user.id){%>
-              
-                <small>
-                    <a href="/comment/destroy/<%=comment.id%>">X</a>
-                </small>
+        <li>
+    
+            <% for(comment of post.comments){%>
+    
+                <p id="comment-main">
+                   <% if(locals.user && locals.user.id==comment.user.id){%>
+                  
+                    <small>
+                        <a href="/comment/destroy/<%=comment.id%>">X</a>
+                    </small>
+                    <%}%>
+                   
+                    <span id="user-name"><%=comment.user.name%></span> : <%=comment.content%>
+    
+    
+                </p>
+    
                 <%}%>
-               
-                <span id="user-name"><%=comment.user.name%></span> : <%=comment.content%>
+    
+        </li>
+       
+    
+       </ul>
+        
+
+<!-- </div> -->
 
 
-            </p>
 
-            <%}%>
 
-    </ul>
-
-</div>
-
-</div>

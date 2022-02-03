@@ -10,9 +10,7 @@
     #feed-posts{
         // plz take care of this section before adding another section into this project
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        width:90%;
 
         #post-heading{
 
@@ -48,25 +46,29 @@
 
         #post-list-container{
 
+            width:60%;
+
             #post-main{
     
                 font-family:sans-serif;
-                font-size:1.4rem;
+                font-size:1.2rem;
+                
+                line-height:140%;
                
     
-                a{
+                a i{
     
                     color:red;
                     text-decoration: none;
                     font-size:1rem;
-                    font-weight:700;
+                    
     
                 }
     
                 i{
     
-                    font-size:1.3rem;
-                    color:purple;
+                    font-size:1.6rem;
+                    color:blueviolet;
                 }
             }
     
@@ -74,6 +76,7 @@
     
                 font-family:sans-serif;
                 font-style:italic;
+                font-size:0.9rem;
             }
 
             .post-comments{
@@ -101,11 +104,15 @@
         }
 
 
-        #post-comments{
+        #post-comments-view{
+
+            
 
             #comment-main{
 
                 font-family:sans-serif;
+                
+            
 
                 a{
 
@@ -130,6 +137,7 @@
         margin-right:5%;
         padding-left:2%;
         border-left:3px solid gray;
+        width:10%;
 
         .heading{
 

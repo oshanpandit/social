@@ -3,10 +3,10 @@
             <li>
                 
             <p id="post-main">
-                <i class="fas fa-vote-yea"></i>&ensp;<%= post.content %>
+                <i class="fas fa-blog"></i>&ensp;<%= post.content %>&ensp;
                 <% if(locals.user && locals.user.id==post.user.id){%>
                 <small>
-                    <a href="/post/destroy/<%=post.id%>">X</a>
+                    <a href="/post/destroy/<%=post.id%>"><i class="fas fa-trash-alt"></i></a>
                 </small>
     
                 <%}%>
@@ -32,6 +32,11 @@
                     <%}%>
     
           </li>
+
+          <%-include('_comment')-%>
             
         <%} %>
     </ul>
+
+    
+
