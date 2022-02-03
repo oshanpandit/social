@@ -78,7 +78,10 @@
 }
 #layout-main #feed-posts #post-comments-view #comment-main #user-name {
   color: black;
-  font-size: 1.1rem;
+  font-size: 1rem;
+}
+#layout-main #feed-posts #post-comments-view #comment-main #user-comment-content {
+  font-size: 1rem;
 }
 #layout-main #user-friends {
   height: 100%;

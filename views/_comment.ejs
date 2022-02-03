@@ -1,8 +1,4 @@
-<!-- <div id="post-comments-view"> -->
-
-    <ul type="none" id="post-comments-view">
-
-        <li>
+ <li id="post-comments-view">
     
             <% for(comment of post.comments){%>
     
@@ -14,7 +10,7 @@
                     </small>
                     <%}%>
                    
-                    <span id="user-name"><%=comment.user.name%></span> : <%=comment.content%>
+                    <span id="user-name"><%=comment.user.name%></span> : <span id="user-comment-content"><%=comment.content%></span>
     
     
                 </p>
@@ -24,10 +20,9 @@
         </li>
        
     
-       </ul>
         
 
-<!-- </div> -->
+
 
 
 
