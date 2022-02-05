@@ -1,6 +1,5 @@
- <li id="post-comments-view">
+ <li>
     
-            <% for(comment of post.comments){%>
     
                 <p id="comment-main">
                    <% if(locals.user && locals.user.id==comment.user.id){%>
@@ -14,8 +13,6 @@
     
     
                 </p>
-    
-                <%}%>
     
         </li>
        

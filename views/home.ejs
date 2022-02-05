@@ -1,8 +1,6 @@
 <link rel="stylesheet" href="/css/homepageStyle.css">
    
-
-
-    <section id="feed-posts">
+ <section id="feed-posts">
         <h4 id="post-heading">Posts</h4>
     
         <% if(locals.user){%>
@@ -14,13 +12,20 @@
         <%}%>
        
     
-        <ul id="post-list-container" type="none">
+        <div id="post-list-container">
+
+            <ul type="none">
+
+            <% for(post of posts){ %>
     
             <%-include('_post')-%>
-            <%-include('_comment')-%>
            
-    
+           
+              <%}%> 
+
         </ul>
+
+        </div>
            
     </section>
     
@@ -54,6 +59,8 @@
         
         <%}%>
     </section>
+
+    <script src="/js/home_post.js"></script>
     
         
 
