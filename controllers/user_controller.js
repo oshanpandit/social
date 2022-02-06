@@ -38,6 +38,8 @@ module.exports.create=function(req,res){
 
     if(req.body.password!=req.body.cnfrm_password){
 
+        req.flash('error','Enter the identical password!')
+
         return res.redirect('back');
     }
 
