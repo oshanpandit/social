@@ -14,21 +14,6 @@ module.exports.create=async function(req,res){
 
     });
 
-    if(req.xhr){
-
-      post= await post.populate('user','name');
-
-      return res.status(200).json({
-
-         data:{
-
-            post:post
-         },
-
-         message:"Post Created"
-      });
-    }
-
     req.flash('success','Post Published!'); 
 
     return res.redirect('back');
@@ -56,18 +41,7 @@ module.exports.destroy=async function(req,res){
 
         post.remove();
 
-        if(req.xhr){
-
-         return res.status(200).json({
-
-            data:{
-
-               post_id:req.params.id
-            },
-
-            message:"Post deleted successfully"
-         })
-        }
+      
 
        await Comment.deleteMany({post:req.params.id});
 
