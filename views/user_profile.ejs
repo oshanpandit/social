@@ -3,6 +3,9 @@
 
     <section id="heading">
         <h1><%=profile_user.name%>'s profile</h1>
+
+        <img src="<%=user.avatar%>" alt="<%=user.name%>" width="100">
+        
     </section>
     
 
@@ -20,12 +23,13 @@
 
         <% if(locals.user.id==profile_user.id){%>
 
-            <form action="/user/update/<%=profile_user.id%>" method="post" id="change-form">
+            <form action="/user/update/<%=profile_user.id%>" enctype="multipart/form-data" method="post" id="change-form">
     
                 <input type="text" name="name" placeholder="Your name" value="<%=profile_user.name%>" required><br><br>
                 
                 <input type="email" name="email" placeholder="your email" value="<%=profile_user.email%>" required><br><br>
     
+                <input type="file" name="avatar" placeholder="Profile Picture"><br><br>
                 <button type="submit">Update</button>
     
             </form>
