@@ -4,6 +4,7 @@ footer {
   background-color: black;
   align-items: center;
   position: fixed;
+  width: 20%;
 }
 footer #heading {
   font-family: sans-serif;

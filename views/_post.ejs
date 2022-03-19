@@ -2,13 +2,15 @@
                 
             <p id="post-main">
                 <i class="fas fa-blog"></i>&ensp;<%= post.content %>&ensp;
-                <% if(locals.user && locals.user.id==post.user.id){%>
+                <% if(locals.user && locals.user.id==post.user._id){%>
                 <small>
                     <a class="delete-post-button" href="/post/destroy/<%=post.id%>"><i class="fas fa-trash-alt"></i></a>
                 </small>
     
                 <%}%>
-                <p id="post-user-name">By: <%=post.user.name%></p>
+
+              
+                  <p id="post-user-name">By: <%=post.user.name%></p>
                
             </p>
     
