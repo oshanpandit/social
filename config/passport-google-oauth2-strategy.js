@@ -6,12 +6,14 @@ const crypto=require('crypto');
 
 const User=require('../models/user');
 
+const env=require('./environment');
+
 
 passport.use(new googleStrategy({
 
-    clientID:"919704372721-md6kpaot5k75ccud3ip55nf2ej2jk91s.apps.googleusercontent.com",
-    clientSecret:"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",
-    callbackURL:"http://localhost:8000/user/auth/google/callback",
+    clientID:env.clientID,
+    clientSecret:env.clientSecret,
+    callbackURL:env.callbackURL,
 },
 
 function(accessToken,refreshToken,profile,done){
@@ -24,7 +26,7 @@ function(accessToken,refreshToken,profile,done){
             return;
         }
 
-        console.log(profile);
+       
 
         if(user){
 

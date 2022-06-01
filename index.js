@@ -1,5 +1,7 @@
 const express=require('express');
 
+const env=require('./config/environment');
+
 const cookieParser=require('cookie-parser');
 
 const app=express();
@@ -26,11 +28,20 @@ const flash=require('connect-flash');
 
 const customMware=require('./config/middleware');
 
+//set up the chat server to be used with socket.io
+
+const chatServer=require('http').Server(app);
+
+const chatSockets=require('./config/chat_sockets').chatSockets(chatServer);
+
+chatServer.listen(5000);
+console.log('chat server is listening on port 5000');
+
 app.use(express.urlencoded());
 
 app.use(cookieParser());
 
-app.use(express.static('./assets') );
+app.use(express.static(env.asset_path));
 
 app.use('/uploads',express.static(__dirname + '/uploads'));
 
@@ -50,7 +61,7 @@ app.use(session({
     name:'user',
 
     //change the secreat before deployment
-    secret:"blahsomething...",
+    secret:env.session_cookie_key,
 
     saveUninitialized:false,
 
