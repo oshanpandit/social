@@ -11,5 +11,5 @@ router.get('/',postsApi.index);
 router.delete('/:id',passport.authenticate('jwt',{session:false}),postsApi.destroy);
 
 
-// hello
+// hello world
 module.exports=router;
